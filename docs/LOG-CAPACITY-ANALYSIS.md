@@ -542,5 +542,5 @@ Last Updated: 2025-01-20
 
 ---
 
-*For questions or issues, contact Adrian Johnson at adrian207@gmail.com or see the main README.md and USAGE-GUIDE.md*
+*For questions or issues, contact Adrian Johnson at adrian207@gmail.com or see the main [README.md](../README.md) and [USAGE-GUIDE.md](USAGE-GUIDE.md)*
 

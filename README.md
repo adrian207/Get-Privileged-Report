@@ -330,7 +330,7 @@ cd Get-Privileged-Report
 
 **Best Practice**: Run quarterly to adjust for infrastructure growth
 
-**See**: [LOG-CAPACITY-ANALYSIS.md](LOG-CAPACITY-ANALYSIS.md) for complete guide
+**See**: [LOG-CAPACITY-ANALYSIS.md](docs/LOG-CAPACITY-ANALYSIS.md) for complete guide
 
 ---
 
@@ -720,9 +720,11 @@ $threads = 5
 | Document | Purpose | Audience |
 |----------|---------|----------|
 | **README.md** (this file) | Complete reference | All users |
-| **USAGE-GUIDE.md** | Step-by-step walkthrough | New users |
-| **QUICK-REFERENCE.md** | Fast lookup / cheat sheet | Daily users |
+| **[USAGE-GUIDE.md](docs/USAGE-GUIDE.md)** | Step-by-step walkthrough | New users |
+| **[QUICK-REFERENCE.md](docs/QUICK-REFERENCE.md)** | Fast lookup / cheat sheet | Daily users |
 | **CHANGELOG.md** | Version history | Administrators |
+| **[LOG-CAPACITY-ANALYSIS.md](docs/LOG-CAPACITY-ANALYSIS.md)** | Capacity planning guide | Operations |
+| **[EXECUTIVE-BRIEFING.md](docs/EXECUTIVE-BRIEFING.md)** | Business case | Executives |
 
 ### External References
 
@@ -740,8 +742,8 @@ $threads = 5
 
 **For issues or questions**:
 1. Check [Troubleshooting Guide](#troubleshooting-guide) above
-2. Review [USAGE-GUIDE.md](USAGE-GUIDE.md) for detailed instructions
-3. Consult [QUICK-REFERENCE.md](QUICK-REFERENCE.md) for common scenarios
+2. Review [USAGE-GUIDE.md](docs/USAGE-GUIDE.md) for detailed instructions
+3. Consult [QUICK-REFERENCE.md](docs/QUICK-REFERENCE.md) for common scenarios
 4. Open issue on GitHub (include PowerShell version, error messages, environment details)
 
 ---
