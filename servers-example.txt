@@ -1,0 +1,17 @@
+# Server List Template
+# Lines starting with # are comments and will be ignored
+# Enter one server name per line (FQDN or hostname)
+
+# Domain Controllers
+DC01.contoso.com
+DC02.contoso.com
+DC03.contoso.com
+
+# File Servers (optional)
+# FS01.contoso.com
+# FS02.contoso.com
+
+# Member Servers (optional)
+# APP01.contoso.com
+# SQL01.contoso.com
+

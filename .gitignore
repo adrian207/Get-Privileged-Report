@@ -1,0 +1,51 @@
+# PowerShell and Windows
+*.ps1xml
+*.psd1
+*.psm1~
+*.psc1
+*.psc1~
+*.psc2
+*.psc2~
+*.ps1~
+*.backup
+
+# Test and temp files
+*.tmp
+*.temp
+*.log
+
+# Generated reports (don't commit user-generated reports)
+PrivilegedReport_*/
+LogCapacityAnalysis_*.csv
+
+# IDE and Editor files
+.vscode/
+.vs/
+*.code-workspace
+.idea/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Sensitive data
+*.credentials
+*.secrets
+*.pfx
+*.p12
+
+# User-specific server lists (example file is OK)
+servers.txt
+
+# Output and logs
+*.out
+*.err
+
