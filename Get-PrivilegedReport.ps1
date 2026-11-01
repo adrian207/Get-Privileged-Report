@@ -574,11 +574,22 @@ function Invoke-ParallelQuery {
         }
         
         try {
-            $events = Get-WinEvent -ComputerName $server -FilterHashtable @{
-                LogName   = 'Security'
-                StartTime = $startTime
-                ID        = $eventIDs
-            } -ErrorAction Stop
+            # Some Windows versions reject event log queries with more than 22 event IDs
+            # ("The specified query is invalid"), so query the IDs in groups of 20.
+            $events = for ($i = 0; $i -lt $eventIDs.Count; $i += 20) {
+                $idGroup = $eventIDs[$i..([math]::Min($i + 19, $eventIDs.Count - 1))]
+                try {
+                    Get-WinEvent -ComputerName $server -FilterHashtable @{
+                        LogName   = 'Security'
+                        StartTime = $startTime
+                        ID        = $idGroup
+                    } -ErrorAction Stop
+                }
+                catch {
+                    if ($_.Exception.Message -notmatch "No events were found") { throw }
+                }
+            }
+            $events = @($events | Sort-Object TimeCreated)
             
             foreach ($evt in $events) {
                 $actors = Get-EventActors -EventRecord $evt
@@ -625,9 +636,11 @@ function Invoke-ParallelQuery {
     $completed = 0
     $total = $Servers.Count
     
+    # ForEach-Object -Parallel can't receive a script block through $using:, so pass its text
+    $scriptText = $scriptBlock.ToString()
     $results = $Servers | ForEach-Object -ThrottleLimit $Config.ParallelThreads -Parallel {
         $server = $_
-        $sb = $using:scriptBlock
+        $sb = [scriptblock]::Create($using:scriptText)
         $startTime = $using:startTime
         $eventIDs = $using:eventIDs
         $excludeSystem = $using:Config.ExcludeSystemAccounts
